@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Play, Image as ImageIcon, X, ChevronLeft, ChevronRight, Sparkles, Camera } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
+import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
+import React from "react";
 
 // Define proper types
 interface GalleryItem {
@@ -204,7 +205,12 @@ export default function Gallery() {
     ? filteredItems.slice(maxItemsPerRow) 
     : [];
 
-  const renderGalleryRow = (items: GalleryItem[], emblaRef: any, rowNumber: number) => (
+  // Fixed TypeScript error by properly typing emblaRef parameter
+  const renderGalleryRow = (
+    items: GalleryItem[], 
+    emblaRef: React.RefCallback<HTMLDivElement>, 
+    rowNumber: number
+  ) => (
     <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
       <div className="flex">
         <AnimatePresence mode="wait">
@@ -319,7 +325,7 @@ export default function Gallery() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-heading text-cream">
-              2025 Highlights
+            2025 Highlights
           </h2>
 
           <div className="w-24 h-1 bg-gradient-to-r from-cream to-cream/60 mx-auto rounded-full mb-6"></div>
@@ -431,33 +437,6 @@ export default function Gallery() {
             </div>
           </motion.div>
         )}
-
-        {/* Gallery Statistics */}
-        {/*<motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16 pt-8 border-t border-cream/20"
-        >
-          <div className="space-y-2">
-            <p className="text-cream/70 text-sm sm:text-base">
-              Showing {filteredItems.length} of {galleryItems.length} memories
-              {selectedCategory !== "All" && (
-                <span className="ml-2">in <span className="font-semibold text-cream">{selectedCategory}</span></span>
-              )}
-            </p>
-            {shouldShowSecondRow && (
-              <p className="text-cream/60 text-xs sm:text-sm">
-                Row 1: {firstRowItems.length} items • Row 2: {secondRowItems.length} items
-              </p>
-            )}
-            <p className="text-cream/60 text-xs">
-              Auto-scrolling every 4 seconds • Row 2 scrolls in reverse
-            </p>
-          </div>
-        </motion.div>
-        */}
       </div>
 
       {/* Enhanced Modal for Selected Item */}
