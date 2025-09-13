@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* For Maeda, we'll use a fallback serif font since it's not available on Google Fonts */
+@font-face {
+  font-family: 'Maeda';
+  src: local('Georgia');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 359 94% 22%; /* #680605 - Maroon */
+  --primary-foreground: 49 78% 88%; /* #F8ECC6 - Cream */
+  --secondary: 49 78% 88%; /* #F8ECC6 - Cream */
+  --secondary-foreground: 359 94% 22%; /* #680605 - Maroon */
+  --accent: 359 94% 22%; /* #680605 - Maroon */
+  --accent-foreground: 49 78% 88%; /* #F8ECC6 - Cream */
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 359 94% 22%; /* #680605 - Maroon for highlights */
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 359 94% 22%; /* #680605 - Maroon */
+  --primary-foreground: 49 78% 88%; /* #F8ECC6 - Cream */
+  --secondary: 49 78% 88%; /* #F8ECC6 - Cream */
+  --secondary-foreground: 359 94% 22%; /* #680605 - Maroon */
+  --accent: 359 94% 22%; /* #680605 - Maroon */
+  --accent-foreground: 49 78% 88%; /* #F8ECC6 - Cream */
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 49 78% 88%; /* #F8ECC6 - Cream for highlights in dark mode */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* 🎨 Theme utilities with maroon and cream colors */
+  .gradient-text {
+    @apply bg-gradient-to-r from-maroon to-cream bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-maroon to-cream;
+  }
+
+  .gradient-border {
+    border-image: linear-gradient(to right, #680605, #F8ECC6) 1;
+  }
+
+  .premium-card {
+    @apply bg-cream/95 backdrop-blur-sm border border-maroon/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-maroon;
+  }
+
+  .premium-card-inverse {
+    @apply bg-maroon/95 backdrop-blur-sm border border-cream/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-cream;
+  }
+
+  .festive-button {
+    @apply bg-maroon hover:bg-maroon/90
+           text-cream font-semibold px-8 py-3 rounded-full 
+           shadow-lg hover:shadow-xl transform hover:scale-105 
+           transition-all duration-300;
+  }
+
+  .festive-button-inverse {
+    @apply bg-cream hover:bg-cream/90
+           text-maroon font-semibold px-8 py-3 rounded-full 
+           shadow-lg hover:shadow-xl transform hover:scale-105 
+           transition-all duration-300;
+  }
+
+  /* ✨ Animations with updated colors */
+  .neon-glow {
+    box-shadow: 
+      0 0 20px rgba(104, 6, 5, 0.5), 
+      0 0 40px rgba(104, 6, 5, 0.4), 
+      0 0 60px rgba(248, 236, 198, 0.3);
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 20px rgba(104, 6, 5, 0.5),
+                  0 0 40px rgba(104, 6, 5, 0.3),
+                  0 0 60px rgba(248, 236, 198, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 30px rgba(104, 6, 5, 0.8),
+                  0 0 60px rgba(104, 6, 5, 0.5),
+                  0 0 90px rgba(248, 236, 198, 0.4);
+    }
+  }
+
+  /* Typography utilities */
+  .heading-font {
+    @apply font-heading text-[#7D2011] text-[48px] font-normal text-center;
+  }
+
+  .body-font {
+    @apply font-body text-[#7D2011] text-[24px] font-normal text-center;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-[#7D2011] font-normal text-center;
+  }
+  
+  h1 { @apply text-[48px]; }
+  h2 { @apply text-[40px]; }
+  h3 { @apply text-[32px]; }
+  h4 { @apply text-[28px]; }
+  h5 { @apply text-[24px]; }
+  h6 { @apply text-[20px]; }
+  
+  p {
+    @apply font-body text-[#7D2011] text-[24px] font-normal text-center;
+  }
+
+  /* Color swap utilities */
+  .maroon-bg {
+    @apply bg-maroon text-cream;
+  }
+
+  .cream-bg {
+    @apply bg-cream text-maroon;
+  }
+}
