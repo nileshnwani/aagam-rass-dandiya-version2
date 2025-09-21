@@ -37,7 +37,7 @@ export const eventDetails = {
     name: "Hyatt Place Convention Center",
     address: "123 Main Street, New York, NY 10001",
     googleMapsUrl: "https://maps.google.com/?q=123+Main+Street+New+York+NY+10001",
-    virtualTourVideo: "/hyatt-place-tour.mp4"
+    virtualTourVideo: "/herovideo.mp4"
   },
   schedule: [
     {
@@ -221,36 +221,25 @@ export const sponsors = [
 // Hero slider
 export const heroSlider = [
   {
-    image: "/hero-1.png",
-    title: "Experience the Magic of Dandiya",
-    subtitle: "Join us for the most vibrant cultural celebration of the year"
+    image: "/background.jpg",
+    title: "आ",
+    subtitle: "Aarambh",
+    description: "The sacred beginning of rhythm and devotion.\n\nWhere every step carries faith and celebration.\n\nAarambh of Aagam Dandiya."
   },
   {
-    image: "/hero-2.png",
-    title: "Premium Cultural Experience",
-    subtitle: "Authentic Gujarati traditions with modern entertainment"
+    image: "/background.jpg",
+    title: "ग",
+    subtitle: "Garba",
+    description: "The heartbeat of tradition and togetherness.\n\nCircles of joy that unite every soul.\n\nGarba, the spirit of Aagam Dandiya."
   },
   {
-    image: "/hero-3.png",
-    title: "Unforgettable Memories",
-    subtitle: "Create lasting connections in a vibrant atmosphere"
-  },
-  {
-    image: "/hero-4.jpg",
-    title: "Exquisite Venue",
-    subtitle: "Celebrate at the prestigious Hyatt Place Convention Center"
-  },
-  {
-    image: "/hero-5.jpg",
-    title: "Gourmet Dining",
-    subtitle: "Savor authentic Gujarati cuisine prepared by master chefs"
-  },
-  {
-    image: "/hero-6.jpg",
-    title: "Live Performances",
-    subtitle: "Enjoy spectacular music and dance by talented artists"
+    image: "/background.jpg",
+    title: "म",
+    subtitle: "Mahotsav",
+    description: "A grand festival of culture and unity.\n\nWhere devotion meets dance in its purest form.\n\nMahotsav begins with Aagam Dandiya"
   }
 ];
+
 
 // Countdown timer
 export const countdownTimer = {

@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://aagamrassdandiya.com'),
+  metadataBase: new URL('https://aagamevents.com/'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Aagam Rass Dandiya - Premium Dandiya Event 2025",
     description: "Join us for the most vibrant and exciting Dandiya event of 2025! Experience traditional Gujarati culture with modern entertainment.",
-    url: 'https://aagamrassdandiya.com',
+    url: 'https://aagamevents.com/',
     siteName: 'Aagam Rass Dandiya',
     images: [
       {

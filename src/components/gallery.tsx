@@ -23,7 +23,7 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    src: "/gallery/2024/music.jpg",
+    src: "/gallery/2024/2024-1.jpg",
     alt: "Traditional Dandiya Performance",
     category: "Dandiya",
     year: "2024",
@@ -31,7 +31,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 2,
-    src: "/gallery/dandiya-1.jpg",
+    src: "/gallery/2024/2024-2.jpg",
     alt: "Colorful Garba Dance",
     category: "Garba",
     year: "2024",
@@ -39,15 +39,15 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 3,
-    src: "/gallery/2023/opening.jpg",
+    src: "/gallery/2024/2024-3.jpg",
     alt: "Opening Ceremony Aarti",
     category: "Ceremony",
-    year: "2023",
+    year: "2024",
     type: "image"
   },
   {
     id: 4,
-    src: "/gallery/dancing-1.jpg",
+    src: "/gallery/2024/2024-4.jpg",
     alt: "Cultural Performance",
     category: "Performance",
     year: "2024",
@@ -55,7 +55,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 5,
-    src: "/gallery/2024/awards-1.jpg",
+    src: "/gallery/2024/2024-5.jpg",
     alt: "Dandiya Night Highlights",
     category: "Dandiya",
     year: "2024",
@@ -64,10 +64,10 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 6,
-    src: "/gallery/2023/community.jpg",
+    src: "/gallery/2024/2024-6",
     alt: "Garba Circle Formation",
     category: "Garba",
-    year: "2023",
+    year: "2024",
     type: "image"
   },
   {

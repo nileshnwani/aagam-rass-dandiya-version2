@@ -11,29 +11,41 @@ import useEmblaCarousel from "embla-carousel-react";
 // Data for the organizer cards
 const organizers = [
   {
-    name: "Priya Patel",
-    role: "Event Director",
+    name: "Jayesh Borse",
+    role: "Founder",
     description: "Passionate about preserving culture and creating memorable community events.",
     image: "/team/priya-patel.jpg",
   },
   {
-    name: "Rajesh Shah",
-    role: "Cultural Coordinator",
+    name: "Subodh Tupe",
+    role: "Founder",
     description: "Expert in traditional dance and music, ensuring authentic experiences.",
     image: "/team/rajesh-shah.jpg",
   },
   {
-    name: "Meera Desai",
-    role: "Community Outreach",
+    name: "Mohit Sushir",
+    role: "Proprietor",
     description: "Building bridges within the community and fostering cultural connections.",
     image: "/team/meera-desai.jpg",
   },
   {
-    name: "Amit Kumar",
-    role: "Technical Director",
+    name: "Abhiraj Shingare",
+    role: "Executive Partner",
+    description: "Managing all technical aspects for a smooth and professional execution.",
+    image: "/team/Abhiraajshigare.jpeg",
+  },
+   {
+    name: "Abhijeet Sahane",
+    role: "Executive Partner",
     description: "Managing all technical aspects for a smooth and professional execution.",
     image: "/team/amit-kumar.jpg",
   },
+   {
+    name: "Vaibhav Autade",
+    role: "Executive Partner",
+    description: "Managing all technical aspects for a smooth and professional execution.",
+    image: "/team/VaibhavAvatade.jpg",
+  }
 ];
 
 // Carousel configuration
@@ -88,8 +100,11 @@ export default function Organizers() {
           <div className="w-24 h-1 bg-gradient-to-r from-maroon to-maroon/60 mx-auto rounded-full mb-6"></div>
 
           <p className="text-maroon/80 max-w-4xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed">
-            Aagam Rass Dandiya is dedicated to celebrating and preserving Gujarati culture through vibrant events that bring communities together. 
-            We create authentic cultural experiences that honor tradition while embracing modern entertainment and community engagement.
+Aagam Raas Dandiya proudly welcomes you to its third annual Navratri celebration, continuing a tradition of vibrant dance, cultural festivities, and joyful community spirit.
+
+Over the past two years, our event has become a cherished platform for bringing people together to experience the excitement and elegance of Raas and Dandiya.
+
+This year, we invite you to join us for an even more memorable celebration, where professionalism meets festive warmth—creating an atmosphere where tradition and happiness truly flourish.
           </p>
         </motion.div>
 
@@ -120,7 +135,8 @@ export default function Organizers() {
 
         {/* -- Auto-Scrolling Carousel -- */}
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-6">
+          {/* Removed gap-6 from flex container */}
+          <div className="flex">
             {organizers.map((organizer, index) => (
               <motion.div
                 key={index}
@@ -128,8 +144,8 @@ export default function Organizers() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                // Responsive slide width
-                className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%]"
+                // Added margin-right for consistent spacing including between last and first card
+                className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] mr-6"
               >
                 <Card className="h-full bg-maroon text-cream rounded-2xl shadow-lg border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl text-center group">
                   <CardContent className="p-8">

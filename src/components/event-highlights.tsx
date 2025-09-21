@@ -1,79 +1,40 @@
 "use client";
 import { useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
 // Define types for event highlights
 interface EventHighlight {
-  title: string;
-  description: string;
-  icon?: string;
-  category: string;
+  id: number;
+  imageUrl: string;
+  alt: string;
 }
 
-// Event highlights data
+// Event highlights data with images
 const eventHighlights: EventHighlight[] = [
   {
-    title: "Traditional Dandiya Performance",
-    description: "Experience authentic Gujarati dance forms performed by skilled artists from across the region",
-    category: "Performance"
+    id: 1,
+    imageUrl: "/highlight1.jpg", // Replace with your actual image paths
+    alt: "Traditional Dandiya Performance"
   },
   {
-    title: "Live Music Orchestra",
-    description: "Enjoy traditional and fusion music performed by our talented musicians and renowned artists",
-    category: "Music"
+    id: 2,
+    imageUrl: "/highlight2.jpeg",
+    alt: "Live Music Orchestra"
   },
   {
-    title: "Gourmet Gujarati Cuisine",
-    description: "Savor authentic dishes prepared by master chefs using traditional recipes and fresh ingredients",
-    category: "Food"
+    id: 3,
+    imageUrl: "/highlight3.jpeg",
+    alt: "Gourmet Gujarati Cuisine"
   },
   {
-    title: "Best Dancer Competition",
-    description: "Showcase your skills and win exciting prizes in our dance competition with amazing rewards",
-    category: "Competition"
+    id: 4,
+    imageUrl: "/highlight4.jpg",
+    alt: "Best Dancer Competition"
   },
-  {
-    title: "Cultural Exhibition",
-    description: "Explore the rich heritage and traditions of Gujarat through interactive displays and artifacts",
-    category: "Culture"
-  },
-  {
-    title: "Professional Photography",
-    description: "Capture your memories with our professional photography services and instant photo printing",
-    category: "Service"
-  },
-  {
-    title: "Traditional Aarti Ceremony",
-    description: "Begin the evening with a beautiful traditional aarti ceremony performed by local priests",
-    category: "Ceremony"
-  },
-  {
-    title: "Garba Workshops",
-    description: "Learn authentic Garba steps from expert instructors in our interactive dance workshops",
-    category: "Workshop"
-  }
 ];
-
-// Get category color based on category name using only cream and maroon
-const getCategoryColor = (category: string): string => {
-  const categoryColors: Record<string, string> = {
-    Performance: "bg-maroon/90 text-cream border-maroon/70",
-    Music: "bg-maroon/80 text-cream border-maroon/60",
-    Food: "bg-maroon/70 text-cream border-maroon/50",
-    Competition: "bg-maroon/95 text-cream border-maroon/80",
-    Culture: "bg-maroon/85 text-cream border-maroon/65",
-    Service: "bg-maroon/75 text-cream border-maroon/55",
-    Ceremony: "bg-maroon text-cream border-maroon/90",
-    Workshop: "bg-maroon/65 text-cream border-maroon/45",
-    Default: "bg-maroon/60 text-cream border-maroon/40"
-  };
-  return categoryColors[category] || categoryColors.Default;
-};
 
 // Carousel configuration
 const carouselOptions = {
@@ -83,7 +44,8 @@ const carouselOptions = {
   containScroll: "trimSnaps" as const,
 };
 
-const slideWidth = "flex-[0_0_95%] sm:flex-[0_0_85%] md:flex-[0_0_65%] lg:flex-[0_0_50%] xl:flex-[0_0_35%]";
+// Increased slide widths for wider cards
+const slideWidth = "flex-[0_0_98%] sm:flex-[0_0_90%] md:flex-[0_0_70%] lg:flex-[0_0_55%] xl:flex-[0_0_40%]";
 
 export default function EventHighlights() {
   // Initialize Embla Carousel
@@ -108,7 +70,7 @@ export default function EventHighlights() {
   }, [emblaApi]);
 
   return (
-    <section className="py-2 lg:py-2 px-2 bg-maroon">
+    <section className="py-2 lg:py-2 px-2 bg-cream">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <motion.div
@@ -119,33 +81,33 @@ export default function EventHighlights() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-cream" />
-            <span className="text-sm sm:text-base font-semibold text-cream/80 uppercase tracking-wider">
+            <Sparkles className="w-6 h-6 text-maroon" />
+            <span className="text-sm sm:text-base font-semibold text-maroon/80 uppercase tracking-wider">
               What Awaits You
             </span>
-            <Sparkles className="w-6 h-6 text-cream" />
+            <Sparkles className="w-6 h-6 text-maroon" />
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-heading text-cream">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-heading text-maroon">
             Event Highlights
           </h2>
           
-          <div className="w-24 h-1 bg-gradient-to-r from-cream to-cream/60 mx-auto rounded-full mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-maroon to-maroon/60 mx-auto rounded-full mb-6"></div>
           
-          <p className="text-cream/80 max-w-3xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed">
+          <p className="text-maroon/80 max-w-3xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed">
             Discover what makes our Dandiya celebration an unforgettable experience filled with tradition, culture, and joy
           </p>
         </motion.div>
 
         {/* Highlights Carousel */}
         <div className="relative">
-          {/* Navigation Buttons - Now visible on all screen sizes */}
+          {/* Navigation Buttons */}
           <div className="flex absolute top-1/2 -translate-y-1/2 left-0 right-0 justify-between pointer-events-none z-20">
             <Button
               onClick={scrollPrev}
               variant="outline"
               size="icon"
-              className="pointer-events-auto -translate-x-1/2 sm:-translate-x-1/2 lg:-translate-x-1/2 bg-cream/95 backdrop-blur-sm border-2 border-cream/30 hover:bg-cream hover:text-maroon shadow-lg hover:shadow-xl transition-all duration-300 rounded-full text-maroon"
+              className="pointer-events-auto -translate-x-1/2 sm:-translate-x-1/2 lg:-translate-x-1/2 bg-maroon/95 backdrop-blur-sm border-2 border-maroon/30 hover:bg-maroon hover:text-cream shadow-lg hover:shadow-xl transition-all duration-300 rounded-full text-cream"
               aria-label="Previous highlight"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -154,7 +116,7 @@ export default function EventHighlights() {
               onClick={scrollNext}
               variant="outline"
               size="icon"
-              className="pointer-events-auto translate-x-1/2 sm:translate-x-1/2 lg:translate-x-1/2 bg-cream/95 backdrop-blur-sm border-2 border-cream/30 hover:bg-cream hover:text-maroon shadow-lg hover:shadow-xl transition-all duration-300 rounded-full text-maroon"
+              className="pointer-events-auto translate-x-1/2 sm:translate-x-1/2 lg:translate-x-1/2 bg-maroon/95 backdrop-blur-sm border-2 border-maroon/30 hover:bg-maroon hover:text-cream shadow-lg hover:shadow-xl transition-all duration-300 rounded-full text-cream"
               aria-label="Next highlight"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -165,7 +127,7 @@ export default function EventHighlights() {
             <div className="flex">
               {eventHighlights.map((highlight, index) => (
                 <div 
-                  key={`highlight-${index}`}
+                  key={`highlight-${highlight.id}`}
                   className={`${slideWidth} pl-4 first:pl-0 last:pr-4`}
                 >
                   <motion.div
@@ -179,38 +141,18 @@ export default function EventHighlights() {
                     }}
                     className="h-full"
                   >
-                    <Card className="group h-full hover:shadow-2xl transition-all duration-500 border-2 border-cream/20 overflow-hidden bg-cream/90 backdrop-blur-sm hover:border-cream/40 transform hover:-translate-y-2 hover:bg-cream/95">
-                      <CardHeader className="pb-4 pt-6 px-6">
-                        {/* Category Badge */}
-                        <div className="flex items-center justify-between mb-3">
-                          <Badge 
-                            className={`${getCategoryColor(highlight.category)} border text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm`}
-                          >
-                            {highlight.category}
-                          </Badge>
-                          <div className="w-8 h-8 rounded-full bg-maroon/10 flex items-center justify-center group-hover:bg-maroon/20 transition-colors duration-300">
-                            <div className="w-3 h-3 rounded-full bg-maroon/60 group-hover:bg-maroon transition-colors duration-300"></div>
-                          </div>
-                        </div>
-                        
-                        {/* Title */}
-                        <CardTitle className="text-xl sm:text-2xl font-heading text-maroon group-hover:text-maroon/90 transition-colors duration-300 leading-tight">
-                          {highlight.title}
-                        </CardTitle>
-                      </CardHeader>
-                      
-                      <CardContent className="px-6 pb-6">
-                        {/* Description */}
-                        <p className="text-sm sm:text-base text-maroon/80 leading-relaxed mb-4">
-                          {highlight.description}
-                        </p>
-                        
-                        {/* Decorative Element */}
-                        <div className="pt-4 border-t border-maroon/10">
-                          <div className="w-12 h-1 bg-gradient-to-r from-maroon to-maroon/40 rounded-full group-hover:w-16 transition-all duration-300"></div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    {/* Card with same height, wider width */}
+                    <div className="group h-96 sm:h-[450px] md:h-[500px] lg:h-[550px] xl:h-[600px] w-full rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-maroon/20 hover:border-maroon/40 transform hover:-translate-y-2 relative">
+                      {/* Image fills entire card */}
+                      <img
+                        src={highlight.imageUrl}
+                        alt={highlight.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-cream/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
                   </motion.div>
                 </div>
               ))}
@@ -223,26 +165,12 @@ export default function EventHighlights() {
               <button
                 key={`indicator-${index}`}
                 onClick={() => emblaApi?.scrollTo(index)}
-                className="w-2 h-2 rounded-full bg-cream/30 hover:bg-cream/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cream/50"
+                className="w-2 h-2 rounded-full bg-maroon/30 hover:bg-maroon/60 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-maroon/50"
                 aria-label={`Go to highlight ${index + 1}`}
               />
             ))}
           </div>
         </div>
-
-        {/* Bottom Call-to-Action */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-16 pt-8 border-t border-cream/20"
-        >
-          <p className="text-cream/80 text-sm sm:text-base leading-relaxed">
-            Experience all these highlights and more at{" "}
-            <span className="font-semibold text-cream">Aagam Rass Dandiya 2025</span>
-          </p>
-        </motion.div>*/}
       </div>
     </section>
   );
