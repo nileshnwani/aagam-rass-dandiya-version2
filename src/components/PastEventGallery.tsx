@@ -19,7 +19,7 @@ const galleryData: Record<string, GalleryItem[]> = {
     {
       id: 1,
       type: "image",
-      src: "/gallery/2023/2023-1.jpg",
+      src: "/gallery/2023/2023-1.JPG",
     },
     {
       id: 2,
@@ -29,56 +29,56 @@ const galleryData: Record<string, GalleryItem[]> = {
     {
       id: 3,
       type: "image", 
-      src: "/gallery/2023/2023-4.jpg",
+      src: "/gallery/2023/2023-4.JPG",
     },
     {
       id: 4,
       type: "video",
-      src: "/gallery/2023/2023-5.jpg",
+      src: "/gallery/2023/2023-5.JPG",
     },
     {
       id: 6,
       type: "video",
-      src: "/gallery/2023/culture.jpg",
+      src: "/gallery/2023/culture.JPG",
     },
   ],
   "2024": [
     {
       id: 7,
       type: "image",
-      src: "/gallery/2024/2024-1.jpg",
+      src: "/gallery/2024/2024-1.JPG",
     },
     {
       id: 8,
-      type: "video",
-      src: "/gallery/2024/2024-2.jpg",
+      type: "image",
+      src: "/gallery/2024/2024-2.JPG",
     },
     {
       id: 9,
       type: "image",
-      src: "/gallery/2024/2024-3.jpg",
+      src: "/gallery/2024/2024-3.JPG",
     },
     {
       id: 10,
-      type: "video",
-      src: "/gallery/2024/2024-4.jpg",
+      type: "image",
+      src: "/gallery/2024/2024-4.JPG",
     },
     {
       id: 11,
       type: "image",
-      src: "/gallery/2024/2024-5.jpg",
+      src: "/gallery/2024/2024-5.JPG",
     },
     {
       id: 12,
-      type: "video",
-      src: "/gallery/2024/2024-6.jpg",
+      type: "image",
+      src: "/gallery/2024/2024-6.JPG",
     },
   ],
   "2025": [
     {
       id: 13,
       type: "image",
-      src: "/gallery/2025/2024-6.jpg",
+      src: "/gallery/2025/2024-6.JPG",
     },
     {
       id: 14,
